@@ -99,5 +99,12 @@ class Function_C{
 		return $result->records();
 	}
 
+	public function get_all_instrumenct_in_rodzaj1($rodzaj){
+		$result = $this->db->run('	MATCH (n:Rodzaj {nazwa:"'.$rodzaj.'"})
+									RETURN n
+			');
+		return $result->records();
+	}
+
 
 }
