@@ -54,7 +54,9 @@ class Function_C{
 		$result = $this->db->run('	MATCH (n:Gatunek) 
 									MATCH (n)-[:instanceof]->(r:Rodzaj)
 									MATCH (r)-[:hiponim]->(d:Rodzina)
-									RETURN n,r,d ORDER BY n.nazwa 
+									MATCH (d)-[:hiponim]->(podgrupa:Podgrupa)
+									MATCH (podgrupa)-[:hiponim]->(grupa:Grupa)
+									RETURN n,r,d, podgrupa, grupa ORDER BY n.nazwa 
 									SKIP '.$skip.' LIMIT '.$limit.'');
 		return $result->records();
 	}
