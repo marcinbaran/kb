@@ -10,5 +10,14 @@
 		<h4>Podgrupa: <?php echo $row[0]->values()[3]->value('nazwa'); ?></h4>
 		<h4>Grupa: <?php echo $row[0]->values()[4]->value('nazwa'); ?></h4>
 	</div>
-	<div class="col-md-4">ZDJĘCIE JEŚLI ISTNIEJE</div>
+	<div class="col-md-4">
+		<?php
+			echo '<h4 style="text-align: center;">'.$_GET['show'].'</h4>';
+			if(file_exists('./img/instruments/'.$_GET['show'].'.png')){
+				echo '<center><img src="./img/instruments/'.$_GET['show'].'.png" class="img-responsive img-thumbnail" ></center>';
+			}else{
+				echo '<center><img src="/img/instruments/brak_zdjecia.png" class="img-responsive img-thumbnail"></center>';
+			}
+		?>
+	</div>
 </div>
