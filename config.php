@@ -5,5 +5,3 @@
 	$db_user = 'neo4j';
 	$db_pass = 'admin';
 	$db_port = '7687';
-
-	//test
