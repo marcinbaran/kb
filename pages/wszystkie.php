@@ -6,6 +6,7 @@
 	}
 
 	$total = $function->get_instruments_count();
+	$total = $total-23;
 	$limit = 20;
 	$pages = ceil($total / $limit);
 	$page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(

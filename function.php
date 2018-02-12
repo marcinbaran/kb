@@ -51,8 +51,7 @@ class Function_C{
 	}
 
 	public function get_all_instruments($limit, $skip){
-		$result = $this->db->run('
-									MATCH (n:Gatunek) 
+		$result = $this->db->run('	MATCH (n:Gatunek) 
 									MATCH (n)-[:instanceof]->(r:Rodzaj)
 									MATCH (r)-[:hiponim]->(d:Rodzina)
 									RETURN n,r,d ORDER BY n.nazwa 
@@ -72,8 +71,13 @@ class Function_C{
 	}
 
 	public function get_info_about($instrument){
-		$result = $this->db->run('MATCH (n:Gatunek {nazwa:"'.$instrument.'"}) return n');
-		return $result;
+		$result = $this->db->run('	MATCH (n:Gatunek {nazwa:"'.$instrument.'"}) 
+									MATCH (n)-[:instanceof]->(r:Rodzaj)
+									MATCH (r)-[:hiponim]->(rodzina:Rodzina)
+									MATCH (rodzina)-[:hiponim]->(podgrupa:Podgrupa)
+									MATCH (podgrupa)-[:hiponim]->(grupa:Grupa)
+									RETURN n,r, rodzina, podgrupa, grupa');
+		return $result->records();
 	}
 
 
