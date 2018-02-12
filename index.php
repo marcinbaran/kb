@@ -77,9 +77,11 @@
 				}
 				
 			}
-
 			if(isset($_GET['show'])){
 				require_once('pages/show.php');
+			}
+			if(isset($_GET['show_rodzaj'])){
+				require_once('pages/showrodzaj.php');
 			}
 		?>
 	</div>

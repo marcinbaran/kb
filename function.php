@@ -91,5 +91,13 @@ class Function_C{
 		return $result->records(); 
 	}
 
+	public function get_all_instrumenct_in_rodzaj($rodzaj){
+		$result = $this->db->run('	MATCH (n:Rodzaj {nazwa:"'.$rodzaj.'"})
+									MATCH (g:Gatunek)-[:instanceof]->(n:Rodzaj)
+									RETURN g
+			');
+		return $result->records();
+	}
+
 
 }
