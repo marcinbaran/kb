@@ -80,5 +80,14 @@ class Function_C{
 		return $result->records();
 	}
 
+	public function get_origin($rodzaj){
+		$result = $this->db->run('	MATCH (n:Rodzaj {nazwa:"'.$rodzaj.'"})
+									MATCH (n)-[:wywodzi_się_z]->(p:`Państwo`)
+									MATCH (p)-[:znajduje_sie_w]->(k:Kontynent)
+									RETURN n,p,k
+			');
+		return $result->records(); 
+	}
+
 
 }
