@@ -37,7 +37,7 @@
 				foreach ($rows as $row) {
 					echo '<tr>';
 					echo '<td>'.$i.'</td>';
-					echo '<td>'.$row->values()[0]->value('nazwa').'</td>';
+					echo '<td><a href="?show='.$row->values()[0]->value('nazwa').'">'.$row->values()[0]->value('nazwa').'</a></td>';
 					echo '<td>'.$row->values()[1]->value('nazwa').'</td>';
 					echo '<td>'.$row->values()[2]->value('nazwa').'</td>';
 					echo '<td><a href="?wszystkie&delete='.$row->values()[0]->identity().'"><button class="btn btn-danger">Usuń</button></a></td>';

@@ -71,7 +71,10 @@ class Function_C{
 						DELETE r,m');
 	}
 
-
+	public function get_info_about($instrument){
+		$result = $this->db->run('MATCH (n:Gatunek {nazwa:"'.$instrument.'"}) return n');
+		return $result;
+	}
 
 
 }
