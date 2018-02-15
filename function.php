@@ -106,5 +106,20 @@ class Function_C{
 		return $result->records();
 	}
 
+	public function info_about_instrument($id){
+		$result = $this->db->run('MATCH (n:Gatunek) WHERE ID(n)='.$id.' RETURN n');
+		return $result->records();
+	}
+
+	public function update_instrument_info($id, $info){
+		$result = $this->db->run('	MATCH (n:Gatunek) 
+									WHERE ID(n)='.$id.'
+									SET n.nazwa = "'.$info['nazwa_instrumentu'].'"
+									SET n.Opis = "'.$info['opis'].'"
+									SET n.Kształt = "'.$info['ksztalt'].'"
+									SET n.Skala = "'.$info['skala'].'"
+									');
+	}
+
 
 }
