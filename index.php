@@ -83,6 +83,9 @@
 			if(isset($_GET['show_rodzaj'])){
 				require_once('pages/showrodzaj.php');
 			}
+			if(isset($_GET['edit'])){
+				require_once('pages/edit.php');
+			}
 		?>
 	</div>
 

@@ -45,7 +45,7 @@
 					echo '<td>'.$row->values()[2]->value('nazwa').'</td>';
 					echo '<td>'.$row->values()[3]->value('nazwa').'</td>';
 					echo '<td>'.$row->values()[4]->value('nazwa').'</td>';
-					echo '<td><a href="?wszystkie&delete='.$row->values()[0]->identity().'"><button class="btn btn-danger">Usuń</button></a></td>';
+					echo '<td><a href="?wszystkie&delete='.$row->values()[0]->identity().'"><button class="btn btn-danger">Usuń</button></a> <a href="?edit='.$row->values()[0]->identity().'"><button class="btn btn-info">Edytuj</button></a></td>';
 					echo '</tr>';
 					$i++;
 				}
