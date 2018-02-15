@@ -69,15 +69,6 @@
 			} 
 		?>
 		<hr></hr>
-		<h3>Kształt</h3>
-		<?php
-			if(isset($row[0]->values()[0]->values()['Kształt'])){
-				echo $row[0]->values()[0]->values()['Kształt'];
-			}else{
-				echo '-';
-			} 
-		?>
-		<hr></hr>
 		<h3>Skala</h3>
 		<?php
 			if(isset($row[0]->values()[0]->values()['Skala'])){

@@ -21,11 +21,6 @@
 		$skala = "";
 	}
 
-	if(isset($row[0]->values()[0]->values()['Kształt'])){
-		$ksztalt = $row[0]->values()[0]->values()['Kształt'];
-	}else{
-		$ksztalt = "";
-	}
 ?>
 <div class="row">
 	<div class="col-md-4">
@@ -34,8 +29,6 @@
 			<input type="text" id="nazwa_instrumentu" name="nazwa_instrumentu" class="form-control" value="<?php echo $row[0]->values()[0]->values()['nazwa']; ?>" ><br>
 			<label for="opis">Opis:</label>
 			<textarea name="opis" class="form-control"><?php echo $opis; ?></textarea><br>
-			<label for="ksztalt">Kształt:</label>
-			<textarea name="ksztalt" class="form-control"><?php echo $ksztalt; ?></textarea><br>
 			<label for="skala">Skala:</label>
 			<textarea name="skala" class="form-control"><?php echo $skala; ?></textarea><br>
 			<input type="submit" name="submit" value="Zapisz" class="btn btn-success">

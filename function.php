@@ -116,9 +116,12 @@ class Function_C{
 									WHERE ID(n)='.$id.'
 									SET n.nazwa = "'.$info['nazwa_instrumentu'].'"
 									SET n.Opis = "'.$info['opis'].'"
-									SET n.Kształt = "'.$info['ksztalt'].'"
 									SET n.Skala = "'.$info['skala'].'"
 									');
+	}
+
+	public function edit_rodzaj($nazwa, $dane){
+		$this->db->run('MATCH (n:Rodzaj {nazwa:"'.$nazwa.'"}) SET n.Opis = "'.$dane['edytujopis'].'"');
 	}
 
 
