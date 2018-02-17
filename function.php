@@ -124,5 +124,47 @@ class Function_C{
 		$this->db->run('MATCH (n:Rodzaj {nazwa:"'.$nazwa.'"}) SET n.Opis = "'.$dane['edytujopis'].'"');
 	}
 
+	public function print_rodzaj(){
+		$result = $this->db->run('MATCH (n:Rodzaj) RETURN n.nazwa ORDER BY n.nazwa');
+		foreach ($result->records() as $row) {
+			echo '<option>'.$row->values()[0].'</option>';
+		}
+	}
+
+	public function print_rodzina(){
+		$result = $this->db->run('MATCH (n:Rodzina) RETURN n.nazwa ORDER BY n.nazwa');
+		foreach ($result->records() as $row) {
+			echo '<option>'.$row->values()[0].'</option>';
+		}
+	}
+
+	public function print_podgrupa(){
+		$result = $this->db->run('MATCH (n:Podgrupa) RETURN n.nazwa ORDER BY n.nazwa');
+		foreach ($result->records() as $row) {
+			echo '<option>'.$row->values()[0].'</option>';
+		}
+	}
+
+	public function print_grupa(){
+		$result = $this->db->run('MATCH (n:Grupa) RETURN n.nazwa ORDER BY n.nazwa');
+		foreach ($result->records() as $row) {
+			echo '<option>'.$row->values()[0].'</option>';
+		}
+	}
+
+	public function add_new_instrument($dane){
+		$nazwa = ucfirst($dane['nazwa']);
+		$this->db->run('MERGE (gatunek:Gatunek {nazwa:"'.$nazwa.'", Opis:"'.$dane['opis'].'", Skala:"'.$dane['skala'].'"})
+						MERGE (rodzaj:Rodzaj {nazwa:"'.$dane['rodzaj'].'"})
+						MERGE (gatunek)-[:instanceof]->(rodzaj)
+			');
+	}
+
+
+
+
+
+
+
 
 }
