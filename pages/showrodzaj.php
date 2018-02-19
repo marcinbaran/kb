@@ -12,7 +12,7 @@
 ?>
 <div class="row">
 	<div class="col-md-8">
-		<h4>Opis: 
+		<h4> 
 			<?php
 			if(isset($rows1[0]->values()[0]->values()['Opis'])){
 				echo $rows1[0]->values()[0]->values()['Opis'];
@@ -22,7 +22,7 @@
 			?>
 		</h4>
 		<hr></hr>
-		<h4>W skład rodzaju "<?php echo $_GET['show_rodzaj']?>" wchodzi/ą:</h4>
+		<h4>Wyróżniamy następujące gatunki należące do rodzaju "<?php echo $_GET['show_rodzaj']?>":</h4>
 		<ul>
 			<?php
 				foreach ($rows as $row) {

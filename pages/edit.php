@@ -34,4 +34,6 @@
 			<input type="submit" name="submit" value="Zapisz" class="btn btn-success">
 		</form>
 	</div>
+	<div class="col-md-7"></div>
+	<div class="col-md-1"><a href="javascript:history.go(-1);"><button class="btn btn-info glyphicon glyphicon-chevron-left"></button></a></div>
 </div>
