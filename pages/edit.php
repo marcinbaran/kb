@@ -7,6 +7,10 @@
 				</div>';
 	}
 
+	if(isset($_POST['dodajkraj'])){
+		$function->dodaj_nowy_kraj($_GET['edit'], $_POST);
+	}
+
 	$row = $function->info_about_instrument($_GET['edit']);
 
 	if(isset($row[0]->values()[0]->values()['Opis'])){
@@ -24,6 +28,7 @@
 ?>
 <div class="row">
 	<div class="col-md-4">
+		<h3>Informacje ogólne:</h3><br>
 		<form action="" method="POST">
 			<label for="nazwa_instrumentu">Nazwa instrumentu:</label>
 			<input type="text" id="nazwa_instrumentu" name="nazwa_instrumentu" class="form-control" value="<?php echo $row[0]->values()[0]->values()['nazwa']; ?>" ><br>
@@ -34,6 +39,19 @@
 			<input type="submit" name="submit" value="Zapisz" class="btn btn-success">
 		</form>
 	</div>
-	<div class="col-md-7"></div>
+	<div class="col-md-1"></div>
+	<div class="col-md-4">
+		<h3>Pochodzenie instrumentu:</h3><br>
+		<form action="" method="POST">
+			<label for="panstwo">Państwo:</label>
+			<input type="text" name="panstwo" id="panstwo" class="form-control"><br>
+			<label>Kontynent:</label>
+			<select name="kontynent" id="kontynent" class="form-control">
+				<?php $function->get_all_kontynent(); ?>
+			</select><br>
+			<input type="submit" name="dodajkraj" value="Dodaj" class="btn btn-success">
+		</form>
+	</div>
+	<div class="col-md-2"></div>
 	<div class="col-md-1"><a href="javascript:history.go(-1);"><button class="btn btn-info glyphicon glyphicon-chevron-left"></button></a></div>
 </div>

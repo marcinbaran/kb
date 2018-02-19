@@ -38,7 +38,7 @@
 	<div class="col-md-4">
 		<form action="" method="POST">
 			<label>Edytuj opis</label>
-			<textarea name="edytujopis" class="form-control"><?php
+			<textarea name="edytujopis" class="form-control" rows="7"><?php
 			if(isset($rows1[0]->values()[0]->values()['Opis'])){
 				echo $rows1[0]->values()[0]->values()['Opis'];
 			}?></textarea><br>

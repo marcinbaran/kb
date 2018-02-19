@@ -169,6 +169,27 @@ class Function_C{
 		return $result->records();
 	}
 
+	public function get_all_kontynent(){
+		$result = $this->db->run('MATCH (n:Kontynent) RETURN n');
+		$rows = $result->records();
+		foreach ($rows as $row) {
+			echo '<option>'.$row->values()[0]->value('nazwa').'</option>';
+		}
+	}
+
+	public function dodaj_nowy_kraj($id, $dane){
+		$this->db->run('MATCH (n) WHERE ID(n) = '.$id.'
+						MERGE (panstwo:Państwo{nazwa:"'.$dane['panstwo'].'"})
+						MERGE (kontynent:Kontynent{nazwa:"'.$dane['kontynent'].'"})
+						MERGE (n)-[:wywodzi_się_z]->(panstwo)
+						MERGE (panstwo)-[:znajduje_sie_w]->(kontynent)
+		');
+	}
+
+
+
+
+
 
 
 
