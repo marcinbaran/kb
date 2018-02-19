@@ -25,7 +25,7 @@
 		<br>
 	</div>
 	<div class="col-md-8">
-		<h3>Wywodzenie się instrumentu:</h3>
+		<h3>Pochodzenie instrumentu:</h3>
 		<div class="table-responsive">
 			<table class="table">
 				<thead>
