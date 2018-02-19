@@ -9,8 +9,11 @@
 
 	$rows = $function->get_all_instrumenct_in_rodzaj($_GET['show_rodzaj']);
 	$rows1 = $function->get_all_instrumenct_in_rodzaj1($_GET['show_rodzaj']);
-	echo '<h1>'.$_GET['show_rodzaj'].'</h1>';
 ?>
+<div class="row">
+	<div class="col-md-11"><?php echo '<h1>'.$_GET['show_rodzaj'].'</h1>'; ?></div>
+	<div class="col-md-1"><button class="btn btn-info glyphicon glyphicon-chevron-left"></button></a></div>
+</div>
 <div class="row">
 	<div class="col-md-8">
 		<h4> 

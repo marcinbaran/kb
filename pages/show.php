@@ -41,7 +41,6 @@
 							if(isset($pochodzenie[0])){
 								echo $pochodzenie[0]->values()[1]->value('nazwa');
 							}
-								 
 							?>
 						</td>
 						<td>
@@ -49,7 +48,6 @@
 							if(isset($pochodzenie[0])){
 								echo $pochodzenie[0]->values()[2]->value('nazwa');
 							}
-								 
 							?>
 					</tr>
 					<?php
