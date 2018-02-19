@@ -160,7 +160,14 @@ class Function_C{
 			');
 	}
 
-
+	public function get_pochodzenie($instrument){
+		$result = $this->db->run('	MATCH (n:Gatunek {nazwa:"'.$instrument.'"})
+									MATCH (n)-[:wywodzi_się_z]->(p:Państwo)
+									MATCH (p)-[:znajduje_sie_w]->(k:Kontynent)
+									RETURN n,p,k
+			');
+		return $result->records();
+	}
 
 
 

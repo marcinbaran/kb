@@ -34,14 +34,13 @@
 						<th>Kontynent</th>
 					</tr>
 				</thead>
+				<tbody>
 					<tr>
 						<td>
 							<?php
 							if(isset($pochodzenie[0])){
 								echo $pochodzenie[0]->values()[1]->value('nazwa');
-							}else{
-								echo '-';
-							} 
+							}
 								 
 							?>
 						</td>
@@ -49,13 +48,23 @@
 							<?php
 							if(isset($pochodzenie[0])){
 								echo $pochodzenie[0]->values()[2]->value('nazwa');
-							}else{
-								echo '-';
-							} 
+							}
 								 
 							?>
 					</tr>
-				<tbody>
+					<?php
+						$poch2 = $function->get_pochodzenie($_GET['show']);
+						foreach ($poch2 as $poch) {
+							echo '<tr>';
+							if(isset($poch->values()[1])){
+								echo '<td>'.$poch->values()[1]->value('nazwa').'</td>';
+							}
+							if(isset($poch->values()[2])){
+								echo '<td>'.$poch->values()[2]->value('nazwa').'</td>';
+							}
+							echo '</tr>';
+						}
+					?>
 				</tbody>
 			</table>
 		</div>
