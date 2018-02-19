@@ -35,21 +35,20 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>
 							<?php
 							if(isset($pochodzenie[0])){
+								echo '<tr><td>';
 								echo $pochodzenie[0]->values()[1]->value('nazwa');
+								echo '</td>';
 							}
 							?>
-						</td>
-						<td>
 							<?php
 							if(isset($pochodzenie[0])){
+								echo '<td>';
 								echo $pochodzenie[0]->values()[2]->value('nazwa');
+								echo '</td></tr>';
 							}
 							?>
-					</tr>
 					<?php
 						$poch2 = $function->get_pochodzenie($_GET['show']);
 						foreach ($poch2 as $poch) {
