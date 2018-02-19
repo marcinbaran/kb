@@ -12,7 +12,7 @@
 ?>
 <div class="row">
 	<div class="col-md-11"><?php echo '<h1>'.$_GET['show_rodzaj'].'</h1>'; ?></div>
-	<div class="col-md-1"><button class="btn btn-info glyphicon glyphicon-chevron-left"></button></a></div>
+	<div class="col-md-1"><a href="javascript:history.go(-1);"><button class="btn btn-info glyphicon glyphicon-chevron-left"></button></a></div>
 </div>
 <div class="row">
 	<div class="col-md-8">
