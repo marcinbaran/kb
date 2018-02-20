@@ -39,7 +39,7 @@
 					<li class="<?php if(isset($_GET['wszystkie'])){echo 'active';}else{echo '';} ?>"><a href="?wszystkie">Wszystkie instrumenty</a></li>
 					<li class="<?php if(isset($_GET['dodaj'])){echo 'active';}else{echo '';} ?>"><a href="?dodaj">Dodaj instrument</a></li>
 					<li class="<?php if(isset($_GET['szukaj'])){echo 'active';}else{echo '';} ?>"><a href="?szukaj">Szukaj</a></li>
-				</ul>
+                </ul>
 <!-- 				<ul class="nav navbar-nav navbar-right">            
 					<form class="navbar-form navbar-left" action="" method="GET">
 						<label for="search">Słowo klucz:</label>
@@ -86,7 +86,7 @@
 			if(isset($_GET['edit'])){
 				require_once('pages/edit.php');
 			}
-		?>
+			?>
 	</div>
 
 

@@ -35,18 +35,29 @@ class Function_C{
 				echo '<br><br><br>';
 				break;
 			case 'Rodzaj instrumentu':
-			$query = 'MATCH (n:Rodzaj)
-		 					WHERE n.nazwa =~ "(?i).*'.$wyrazenie.'.*"
-		 					RETURN n.nazwa ORDER BY n.nazwa';
-		 	$result = $this->db->run($query);
-		 	$rows = $result->records();
-		 	if(empty($rows)){echo '<span style="color: #f96868;">Nic nie znaleziono ...</span>';};
-		 	foreach ($rows as $row) {
-		 		echo $row->values()[0].'<br>';
-		 		//print_r($row);
-		 	}
-		 	echo '<br><br><br><br><br><br>';
-		 	//print_r($result);
+                $query = 'MATCH (n:Rodzaj)
+                                WHERE n.nazwa =~ "(?i).*'.$wyrazenie.'.*"
+                                RETURN n.nazwa ORDER BY n.nazwa';
+                $result = $this->db->run($query);
+                $rows = $result->records();
+                if(empty($rows)){echo '<span style="color: #f96868;">Nic nie znaleziono ...</span>';};
+                foreach ($rows as $row) {
+                    echo '<a href="?szukaj='.$wyrazenie.'&by='.$wedlug.'&more='.$row->values()[0].'">'.$row->values()[0].'</a><br>';
+                }
+                echo '<br><br><br><br><br><br>';
+                break;
+            case 'Wywodzenie się instrumentu':
+                $query = '  MATCH (n:Państwo)
+                            WHERE n.nazwa =~ "(?i).*'.$wyrazenie.'.*"
+                            RETURN n.nazwa ORDER BY n.nazwa ';
+                $result = $this->db->run($query);
+                $rows = $result->records();
+                if(empty($rows)){echo '<span style="color: #f96868;">Nic nie znaleziono ...</span>';};
+                foreach ($rows as $row) {
+                    echo '<a href="?szukaj='.$wyrazenie.'&by='.$wedlug.'&more='.$row->values()[0].'">'.$row->values()[0].'</a><br>';
+                }
+                echo '<br><br><br><br><br><br>';
+                break;
 		}
 	}
 
@@ -186,7 +197,35 @@ class Function_C{
 		');
 	}
 
+    public function show_more($by, $more){
+        switch ($by){
+            case 'Rodzaj instrumentu':
+                $query = '  MATCH (n:Rodzaj {nazwa:"'.$more.'"})
+                            MATCH (i:Gatunek)-[:instanceof]->(n)
+                            RETURN i
+                ';
+                $result = $this->db->run($query);
+                $rows = $result->records();
+                foreach ($rows as $row) {
+                    echo '<a href="?show='.$row->values()[0]->value('nazwa').'">'.$row->values()[0]->value('nazwa').'</a><br>';
+                }
+                break;
 
+            case 'Wywodzenie się instrumentu':
+                $query = '  MATCH (n:Państwo{nazwa:"'.$more.'"}) 
+                            MATCH (i:Gatunek)-[:wywodzi_się_z]->(n)
+                            RETURN i
+                ';
+                $result = $this->db->run($query);
+                $rows = $result->records();
+                foreach ($rows as $row) {
+                    echo '<a href="?show='.$row->values()[0]->value('nazwa').'">'.$row->values()[0]->value('nazwa').'</a><br>';
+                }
+                break;
+                break;
+        }
+
+    }
 
 
 

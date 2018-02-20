@@ -11,7 +11,6 @@
 			<select name="wedlug" id="wedlug" class="form-control">
 				<option>Nazwa instrumentu</option>
 				<option>Rodzaj instrumentu</option>
-				<option>Nazwa rodziny</option>
 				<option>Wywodzenie się instrumentu</option>
 			</select><br>
 			<label for="wyrazenie">Szukane wyrażenie:</label>
