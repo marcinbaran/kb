@@ -26,6 +26,23 @@
 	}
 
 ?>
+
+<script type="text/javascript">
+    function fetch_select(val){
+        $.ajax({
+            type: 'post',
+            url: 'fetch_data.php',
+            data: {
+                get_option:val
+            },
+            success: function (response) {
+                document.getElementById("panstwo").innerHTML=response;
+            }
+        });
+    }
+</script>
+
+
 <div class="row">
 	<div class="col-md-4">
 		<h3>Informacje ogólne:</h3><br>
@@ -43,11 +60,14 @@
 	<div class="col-md-4">
 		<h3>Pochodzenie instrumentu:</h3><br>
 		<form action="" method="POST">
-			<label for="panstwo">Państwo:</label>
-			<input type="text" name="panstwo" id="panstwo" class="form-control"><br>
 			<label>Kontynent:</label>
-			<select name="kontynent" id="kontynent" class="form-control">
+			<select name="kontynent" id="kontynent" class="form-control" onchange="fetch_select(this.value);">
+				<option disabled selected>Wybierz kontynent</option>
 				<?php $function->get_all_kontynent(); ?>
+			</select><br>
+			<label for="panstwo">Państwo:</label>
+			<select name="panstwo" id="panstwo" class="form-control">
+				
 			</select><br>
 			<input type="submit" name="dodajkraj" value="Dodaj" class="btn btn-success">
 		</form>
