@@ -86,6 +86,15 @@
 			if(isset($_GET['edit'])){
 				require_once('pages/edit.php');
 			}
+			if(isset($_GET['show_rodzina'])){
+				require_once('pages/show_rodzina.php');
+			}
+			if(isset($_GET['show_podgrupa'])){
+				require_once('pages/show_podgrupa.php');
+			}
+			if(isset($_GET['show_grupa'])){
+				require_once('pages/show_grupa.php');
+			}
 			?>
 	</div>
 

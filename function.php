@@ -42,7 +42,7 @@ class Function_C{
                 $rows = $result->records();
                 if(empty($rows)){echo '<span style="color: #f96868;">Nic nie znaleziono ...</span>';};
                 foreach ($rows as $row) {
-                    echo '<a href="?szukaj='.$wyrazenie.'&by='.$wedlug.'&more='.$row->values()[0].'">'.$row->values()[0].'</a><br>';
+                	echo '<a href="?show_rodzaj='.$row->values()[0].'">'.$row->values()[0].'</a><br>';
                 }
                 echo '<br><br><br><br><br><br>';
                 break;
@@ -227,6 +227,20 @@ class Function_C{
 
     }
 
+    public function show_rodzina($nazwa){
+    	$result = $this->db->run('MATCH (n:Rodzina{nazwa:"'.$nazwa.'"})-[:hiperonim]->(m:Rodzaj) RETURN m');
+    	return $result->records();
+    }
+
+    public function show_podgrupa($nazwa){
+    	$result = $this->db->run('MATCH (n:Podgrupa{nazwa:"'.$nazwa.'"})-[:hiperonim]->(m:Rodzina) RETURN m');
+    	return $result->records();
+    }
+
+    public function show_grupa($nazwa){
+    	$result = $this->db->run('MATCH (n:Grupa{nazwa:"'.$nazwa.'"})-[:hiperonim]->(m:Podgrupa) RETURN m');
+    	return $result->records();
+    }
 
 
 
