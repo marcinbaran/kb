@@ -253,13 +253,25 @@ class Function_C{
     public function szukaj_instrument_po_nazwie($nazwa){
 	    $result = $this->db->run('MATCH (n:Gatunek)
 		 					WHERE n.nazwa =~ "(?i).*'.$nazwa.'.*"
-		 					RETURN n.nazwa ORDER BY n.nazwa');
+		 					RETURN n.nazwa, COUNT(n) ORDER BY n.nazwa');
 	    return $result->records();
+    }
+
+    public function szukaj_instrument_po_nazwie_liczba($nazwa){
+        $result = $this->db->run('MATCH (n:Gatunek)
+		 					WHERE n.nazwa =~ "(?i).*'.$nazwa.'.*"
+		 					RETURN COUNT(n)');
+        return $result->records();
     }
 
     public function szukaj_instrumentow_po_panstwie($nazwa){
 	    $result = $this->db->run('MATCH(n:Państwo{nazwa:"'.$nazwa.'"})<-[:wywodzi_się_z]-(m:Gatunek) RETURN m');
 	    return $result->records();
+    }
+
+    public function szukaj_rodzajow_po_panstwie($nazwa){
+        $result = $this->db->run('MATCH(n:Państwo{nazwa:"'.$nazwa.'"})<-[:wywodzi_się_z]-(m:Rodzaj) RETURN m');
+        return $result->records();
     }
 
     public function pokaz_grupy($nazwa){

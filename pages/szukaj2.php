@@ -33,29 +33,71 @@
             </select>
         </div>
         <div class="col-md-3">
-            <input type="submit" value="Szukaj" class="btn btn-info">
+            <input type="submit" value="Szukaj" name="szukaj" class="btn btn-info">
         </div>
     </div>
 </form>
 
 <?php
 
-if(isset($_POST['kontynent'])){
-    if(!isset($_POST['panstwo'])){
+//if(isset($_POST['kontynent'])){
+//    if(!isset($_POST['panstwo'])){
+//        echo '<div class="alert alert-danger">
+//                  <strong>Nie wybrano państwa !</strong>
+//              </div>';
+//    }else{
+//        $rows = $function->szukaj_instrumentow_po_panstwie($_POST['panstwo']);
+//        if(empty($rows)){
+//            echo '<div class="alert alert-danger">
+//                  <strong>Nie znaleziono instrumentów pochodzących z państwa: '.$_POST['panstwo'].'</strong>
+//              </div>';
+//        }else{
+//            echo '<h4>Instrumenty pochodzące z państwa '.$_POST['panstwo'].' :</h4>';
+//            foreach($rows as $row){
+//                echo '<a href="?show='.$row->values()[0]->values()['nazwa'].'">'.$row->values()[0]->values()['nazwa'].'</a><br>';
+//            }
+//        }
+//    }
+//}
+
+if(isset($_POST['szukaj'])){
+    if(!isset($_POST['panstwo']) || empty($_POST['panstwo'])) {
         echo '<div class="alert alert-danger">
                   <strong>Nie wybrano państwa !</strong>
               </div>';
     }else{
-        $rows = $function->szukaj_instrumentow_po_panstwie($_POST['panstwo']);
-        if(empty($rows)){
-            echo '<div class="alert alert-danger">
-                  <strong>Nie znaleziono instrumentów pochodzących z państwa: '.$_POST['panstwo'].'</strong>
-              </div>';
-        }else{
-            echo '<h4>Instrumenty pochodzące z państwa '.$_POST['panstwo'].' :</h4>';
-            foreach($rows as $row){
-                echo '<a href="?show='.$row->values()[0]->values()['nazwa'].'">'.$row->values()[0]->values()['nazwa'].'</a><br>';
-            }
-        }
+?>
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-2">
+                <h4>Gatunki:</h4>
+                <?php
+                    $rows = $function->szukaj_instrumentow_po_panstwie($_POST['panstwo']);
+                    if(empty($rows)){
+                        echo 'Nic nie znaleziono ...';
+                    }else {
+                        foreach ($rows as $row) {
+                            echo '<a href="?show=' . $row->values()[0]->values()['nazwa'] . '">' . $row->values()[0]->values()['nazwa'] . '</a><br>';
+                        }
+                    }
+                ?>
+            </div>
+            <div class="col-md-4">
+                <h4>Rodzaje:</h4>
+                    <?php
+                        $rows = $function->szukaj_rodzajow_po_panstwie($_POST['panstwo']);
+                        if(empty($rows)){
+                            echo 'Nic nie znaleziono ...';
+                        }else {
+                            foreach ($rows as $row) {
+                                echo '<a href="?show_rodzaj=' . $row->values()[0]->values()['nazwa'] . '">' . $row->values()[0]->values()['nazwa'] . '</a><br>';
+                            }
+                        }
+                    ?>
+            </div>
+        </div>
+
+
+<?php
     }
 }

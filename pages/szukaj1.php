@@ -17,11 +17,15 @@
     if(isset($_POST['nazwa_instrumentu'])){
         echo '<h4>Szukasz wyrażenia: '.$_POST['nazwa_instrumentu'].'</h4>';
         $rows = $function->szukaj_instrument_po_nazwie($_POST['nazwa_instrumentu']);
+        $liczba = $function->szukaj_instrument_po_nazwie_liczba($_POST['nazwa_instrumentu']);
         if(empty($rows)){
             echo '<div class="alert alert-danger">
                   <strong>Nie znaleziono żadnego instrumentu zawierającego wprowadzone wyrażenie !</strong>
               </div>';
         }else{
+            if($liczba[0]->values()[0] == 1){
+                header('Location: ?show='.$rows[0]->values()[0]);
+            }
             foreach ($rows as $row){
                 echo '<a href="?show='.$row->values()[0].'">'.$row->values()[0].'</a><br>';
             }
