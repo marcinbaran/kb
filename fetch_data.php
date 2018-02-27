@@ -45,3 +45,13 @@
             echo '<option>'.$row->values()[0]->value('nazwa').'</option>';
         }
     }
+
+    if(isset($_POST['pokaz_panstwa'])){
+        $query = 'MATCH(n:Kontynent{nazwa:"'.$_POST['pokaz_panstwa'].'"})<-[:znajduje_sie_w]->(m:Państwo) RETURN m';
+        $result = $db->run($query);
+        $rows = $result->records();
+        echo '<option selected disabled>Wybierz Państwo...</option>';
+        foreach ($rows as $row) {
+            echo '<option>'.$row->values()[0]->value('nazwa').'</option>';
+        }
+    }

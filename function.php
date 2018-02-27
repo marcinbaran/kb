@@ -250,6 +250,53 @@ class Function_C{
         }
     }
 
+    public function szukaj_instrument_po_nazwie($nazwa){
+	    $result = $this->db->run('MATCH (n:Gatunek)
+		 					WHERE n.nazwa =~ "(?i).*'.$nazwa.'.*"
+		 					RETURN n.nazwa ORDER BY n.nazwa');
+	    return $result->records();
+    }
+
+    public function szukaj_instrumentow_po_panstwie($nazwa){
+	    $result = $this->db->run('MATCH(n:Państwo{nazwa:"'.$nazwa.'"})<-[:wywodzi_się_z]-(m:Gatunek) RETURN m');
+	    return $result->records();
+    }
+
+    public function pokaz_grupy($nazwa){
+        $result = $this->db->run('MATCH (n:Grupa)
+		 					WHERE n.nazwa =~ "(?i).*'.$nazwa.'.*"
+		 					RETURN n.nazwa ORDER BY n.nazwa');
+        return $result->records();
+    }
+
+    public function pokaz_podgrupy($nazwa){
+        $result = $this->db->run('MATCH (n:Podgrupa)
+		 					WHERE n.nazwa =~ "(?i).*'.$nazwa.'.*"
+		 					RETURN n.nazwa ORDER BY n.nazwa');
+        return $result->records();
+    }
+
+    public function pokaz_rodziny($nazwa){
+        $result = $this->db->run('MATCH (n:Rodzina)
+		 					WHERE n.nazwa =~ "(?i).*'.$nazwa.'.*"
+		 					RETURN n.nazwa ORDER BY n.nazwa');
+        return $result->records();
+    }
+
+    public function pokaz_rodzaje($nazwa){
+        $result = $this->db->run('MATCH (n:Rodzaj)
+		 					WHERE n.nazwa =~ "(?i).*'.$nazwa.'.*"
+		 					RETURN n.nazwa ORDER BY n.nazwa');
+        return $result->records();
+    }
+
+
+
+
+
+
+
+
 
 
 

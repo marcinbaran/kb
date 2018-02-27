@@ -38,7 +38,16 @@
 					<li class="<?php if(empty($_GET)){echo 'active';}else{echo '';} ?>"><a href="/">Strona główna</a></li>
 					<li class="<?php if(isset($_GET['wszystkie'])){echo 'active';}else{echo '';} ?>"><a href="?wszystkie">Wszystkie instrumenty</a></li>
 					<li class="<?php if(isset($_GET['dodaj'])){echo 'active';}else{echo '';} ?>"><a href="?dodaj">Dodaj instrument</a></li>
-					<li class="<?php if(isset($_GET['szukaj'])){echo 'active';}else{echo '';} ?>"><a href="?szukaj">Szukaj</a></li>
+<!--					<li class="--><?php //if(isset($_GET['szukaj'])){echo 'active';}else{echo '';} ?><!--"><a href="?szukaj">Szukaj</a></li>-->
+                    <li class="dropdown <?php if(isset($_GET['produkty']) || isset($_GET['choroby']) || isset($_GET['diety'])){echo 'active';}?>">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Szukaj<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="?szukaj1">Instrument muzyczny po nazwie</a></li>
+                            <li><a href="?szukaj2">Instrumenty z wybranego kraju</a></li>
+                            <li><a href="?szukaj3">Po grupie, podgrupie, rodzinie lub rodzaju</a></li>
+                        </ul>
+                    </li>
                 </ul>
 <!-- 				<ul class="nav navbar-nav navbar-right">            
 					<form class="navbar-form navbar-left" action="" method="GET">
@@ -69,14 +78,14 @@
 			if(isset($_GET['dodaj'])){
 				require_once('pages/dodaj.php');
 			}
-			if(isset($_GET['szukaj'])){
-				if(empty($_GET['szukaj'])){
-					require_once('pages/szukaj.php');
-				}else{
-					require_once('pages/showszukaj.php');
-				}
-				
-			}
+//			if(isset($_GET['szukaj'])){
+//				if(empty($_GET['szukaj'])){
+//					require_once('pages/szukaj.php');
+//				}else{
+//					require_once('pages/showszukaj.php');
+//				}
+//
+//			}
 			if(isset($_GET['show'])){
 				require_once('pages/show.php');
 			}
@@ -95,6 +104,15 @@
 			if(isset($_GET['show_grupa'])){
 				require_once('pages/show_grupa.php');
 			}
+			if(isset($_GET['szukaj1'])){
+			    require_once('pages/szukaj1.php');
+            }
+            if(isset($_GET['szukaj2'])){
+                require_once('pages/szukaj2.php');
+            }
+            if(isset($_GET['szukaj3'])){
+                require_once('pages/szukaj3.php');
+            }
 			?>
 	</div>
 
