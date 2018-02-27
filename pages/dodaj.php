@@ -1,8 +1,63 @@
 <?php
 	if(isset($_POST['dodaj'])){
-		$function->add_new_instrument($_POST);
+	    if(!isset($_POST['rodzaj'])){
+            echo '<div class="alert alert-danger">
+                  <strong>Wybierz rodzaj instrumentu muzycznego !</strong>
+              </div>';
+        }else{
+            $function->add_new_instrument($_POST);
+            echo '<div class="alert alert-success">
+                  <strong>Instrument został dodany !</strong>
+              </div>';
+        }
 	}
 ?>
+
+<script type="text/javascript">
+    function pokaz_podgrupe(val){
+        $.ajax({
+            type: 'post',
+            url: 'fetch_data.php',
+            data: {
+                pokaz_podgrupe:val
+            },
+            success: function (response) {
+                document.getElementById("podgrupa").innerHTML=response;
+                document.getElementById("podgrupa_instrumentu").style.display="inline";
+            }
+        });
+    }
+
+    function pokaz_rodzine(val){
+        $.ajax({
+            type: 'post',
+            url: 'fetch_data.php',
+            data: {
+                pokaz_rodzine:val
+            },
+            success: function (response) {
+                document.getElementById("rodzina").innerHTML=response;
+                document.getElementById("rodzina_instrumentu").style.display="inline";
+            }
+        });
+    }
+
+    function pokaz_rodzaj(val){
+        $.ajax({
+            type: 'post',
+            url: 'fetch_data.php',
+            data: {
+                pokaz_rodzaj:val
+            },
+            success: function (response) {
+                document.getElementById("rodzaj").innerHTML=response;
+                document.getElementById("rodzaj_instrumentu").style.display="inline";
+            }
+        });
+    }
+</script>
+
+
 <form action="" method="POST">
 	<div class="row">
 		<div class="col-md-2"></div>
@@ -15,25 +70,30 @@
 				<textarea name="skala" class="form-control"></textarea><br>
 		</div>
 		<div class="col-md-4">
-			<label>Rodzaj instrumentu:</label>
-			<select name="rodzaj" class="form-control">
-				<?php $function->print_rodzaj(); ?>
-			</select><br>
-			<label>Rodzina instrumentu:</label>
-			<select name="rodzina" class="form-control">
-				<?php $function->print_rodzina(); ?>
-			</select><br>
-			<label>Pogrupa:</label>
-			<select name="podgrupa" class="form-control">
-				<?php $function->print_podgrupa(); ?>
-			</select><br>
-			<label>Grupa:</label>
-			<select name="grupa" class="form-control">
-				<?php $function->print_grupa(); ?>
-			</select>
+            <label>Grupa instrumentu:</label>
+            <select class="form-control" name="grupa" onchange="pokaz_podgrupe(this.value);">
+                <option disabled selected>Wybierz grupę</option>
+                <?php $function->print_grupa_select(); ?>
+            </select><br>
+            <span id="podgrupa_instrumentu" style="display: none">
+                <label>Podgrupa</label>
+                <select class="form-control" name="podgrupa" id="podgrupa" onchange="pokaz_rodzine(this.value);">
+                </select><br>
+            </span>
+            <span id="rodzina_instrumentu" style="display: none">
+            <label>Rodzina</label>
+            <select class="form-control" id="rodzina" name="rodzina" onchange="pokaz_rodzaj(this.value);">
+            </select><br>
+            </span>
+            <span id="rodzaj_instrumentu" style="display: none">
+            <label>Rodzaj</label>
+            <select class="form-control" id="rodzaj" name="rodzaj">
+            </select>
+            </span>
 		</div>
 		<div class="col-md-2"></div>
 	</div>
+
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-2">

@@ -242,6 +242,14 @@ class Function_C{
     	return $result->records();
     }
 
+    public function print_grupa_select(){
+	    $result = $this->db->run('MATCH (n:Grupa) return n');
+	    $rows = $result->records();
+	    foreach ($rows as $row){
+	        echo '<option>'.$row->values()[0]->value('nazwa').'</option>';
+        }
+    }
+
 
 
 
