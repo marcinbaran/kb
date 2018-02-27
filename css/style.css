@@ -1,7 +1,7 @@
 body{
-	/*background: url("../img/bg.jpg");*/
-	/*background-size: cover;*/
-	/*background-repeat: no-repeat;*/
+	background: url("../img/bg.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 .footer{
 	background-color: #1bb5d3; 
@@ -12,7 +12,7 @@ body{
 	height: 45px; 
 	text-align: center; 
 	padding-top: 10px; 
-	border-top: 2px solid #fff;
+	/*border-top: 2px solid #fff;*/
 }
 
 .content1{
@@ -21,4 +21,12 @@ body{
 
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
 	z-index: 0;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
+	border-top: 1px solid #222;
+}
+
+.table > thead > tr > th{
+	border-bottom: 2px solid #000;
 }
