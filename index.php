@@ -31,35 +31,32 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/">Instrymenty muzyczne</a>
+				<a class="navbar-brand" href="/">Strona główna</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="<?php if(empty($_GET)){echo 'active';}else{echo '';} ?>"><a href="/">Strona główna</a></li>
-					<li class="<?php if(isset($_GET['wszystkie'])){echo 'active';}else{echo '';} ?>"><a href="?wszystkie">Wszystkie instrumenty</a></li>
-					<li class="<?php if(isset($_GET['dodaj'])){echo 'active';}else{echo '';} ?>"><a href="?dodaj">Dodaj instrument</a></li>
-<!--					<li class="--><?php //if(isset($_GET['szukaj'])){echo 'active';}else{echo '';} ?><!--"><a href="?szukaj">Szukaj</a></li>-->
-                    <li class="dropdown <?php if(isset($_GET['produkty']) || isset($_GET['choroby']) || isset($_GET['diety'])){echo 'active';}?>">
+					<li class="<?php if(isset($_GET['instrumenty'])){echo 'active';}else{echo '';} ?>"><a href="?instrumenty">Instrumenty muzyczne</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zarządzaj instrumentami<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="?wszystkie">Wszystkie instrumenty</a></li>
+                            <li><a href="?dodaj">Dodaj instrument</a></li>
+                        </ul>
+                    </li>
+<!--					<li class="--><?php //if(isset($_GET['wszystkie'])){echo 'active';}else{echo '';} ?><!--"><a href="?wszystkie">Wszystkie instrumenty</a></li>-->
+<!--					<li class="--><?php //if(isset($_GET['dodaj'])){echo 'active';}else{echo '';} ?><!--"><a href="?dodaj">Dodaj instrument</a></li>-->
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Szukaj<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="?szukaj1">Instrument muzyczny po nazwie</a></li>
+<!--                            <li><a href="?szukaj1">Instrument muzyczny po nazwie</a></li>-->
                             <li><a href="?szukaj2">Instrumenty z wybranego kraju</a></li>
                             <li><a href="?szukaj3">Po grupie, podgrupie, rodzinie lub rodzaju</a></li>
                         </ul>
                     </li>
                 </ul>
-<!-- 				<ul class="nav navbar-nav navbar-right">            
-					<form class="navbar-form navbar-left" action="" method="GET">
-						<label for="search">Słowo klucz:</label>
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Nazwa instrumentu" name="search" id="search" style="width: 350px;">
-						</div>
-						<button class="btn btn-default" type="submit">
-							<i class="glyphicon glyphicon-search"></i>
-						</button>
-					</form>
-				</ul> -->
+                <ul class="nav navbar-nav navbar-right"
 			</div>
 		</div>
 	</nav>
@@ -70,7 +67,7 @@
 		<?php
 
 			if(empty($_GET)){
-				require_once('pages/glowna.php');
+				require_once('pages/szukaj1.php');
 			}
 			if(isset($_GET['wszystkie'])){
 				require_once('pages/wszystkie.php');
@@ -112,6 +109,9 @@
             }
             if(isset($_GET['szukaj3'])){
                 require_once('pages/szukaj3.php');
+            }
+            if(isset($_GET['instrumenty'])){
+			    require_once('pages/instrumenty.php');
             }
 			?>
 	</div>
