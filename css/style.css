@@ -1,5 +1,5 @@
 body{
-	background: url("../img/bg.jpg");
+	/*background: url("../img/bg.jpg");*/
 	background-repeat: no-repeat;
 	background-position: center top;
 	background-attachment: fixed;
@@ -12,7 +12,7 @@ body{
 	width: 100%; 
 	height: 45px; 
 	text-align: center; 
-	padding-top: 10px; 
+	padding-top: 10px;
 	/*border-top: 2px solid #fff;*/
 }
 
@@ -39,4 +39,16 @@ body{
 .rozwijanie:hover{
 	color: #00baea;
 	cursor: pointer;
+}
+.allhere{
+	color: #222222;
+}
+
+.allhere:hover{
+	color: #337ab7;
+	font-weight: bold;
+}
+
+textarea{
+	resize: none;
 }

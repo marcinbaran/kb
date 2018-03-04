@@ -50,15 +50,15 @@
 			<label for="nazwa_instrumentu">Nazwa instrumentu:</label>
 			<input type="text" id="nazwa_instrumentu" name="nazwa_instrumentu" class="form-control" value="<?php echo $row[0]->values()[0]->values()['nazwa']; ?>" ><br>
 			<label for="opis">Opis:</label>
-			<textarea name="opis" class="form-control"><?php echo $opis; ?></textarea><br>
+			<textarea name="opis" class="form-control" rows="7"><?php echo $opis; ?></textarea><br>
 			<label for="skala">Skala:</label>
-			<textarea name="skala" class="form-control"><?php echo $skala; ?></textarea><br>
+			<textarea name="skala" class="form-control" rows="7"><?php echo $skala; ?></textarea><br>
 			<input type="submit" name="submit" value="Zapisz" class="btn btn-success">
 		</form>
 	</div>
 	<div class="col-md-1"></div>
-	<div class="col-md-4">
-		<h3>Pochodzenie instrumentu:</h3><br>
+	<div class="col-md-6">
+		<h3>Dodaj pochodzenie instrumentu:</h3><br>
 		<form action="" method="POST">
 			<label>Kontynent:</label>
 			<select name="kontynent" id="kontynent" class="form-control" onchange="fetch_select(this.value);">
@@ -71,7 +71,35 @@
 			</select><br>
 			<input type="submit" name="dodajkraj" value="Dodaj" class="btn btn-success">
 		</form>
+
+        <br><br>
+        <h3>Pochodzenie instrumentu:</h3>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Państwo</th>
+                    <th>Kontynent</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                    $poch2 = $function->get_pochodzenie($row[0]->values()[0]->values()['nazwa']);
+                    foreach ($poch2 as $poch) {
+                        echo '<tr>';
+                        if(isset($poch->values()[1])){
+                            echo '<td>'.$poch->values()[1]->value('nazwa').'</td>';
+                        }
+                        if(isset($poch->values()[2])){
+                            echo '<td>'.$poch->values()[2]->value('nazwa').'</td>';
+                        }
+                        echo '</tr>';
+                    }
+                ?>
+                </tbody>
+            </table>
 	</div>
-	<div class="col-md-2"></div>
-	<div class="col-md-1"><a href="javascript:history.go(-1);"><button class="btn btn-info glyphicon glyphicon-chevron-left"></button></a></div>
+<!--	<div class="col-md-1"><a href="javascript:history.go(-1);"><button class="btn btn-info glyphicon glyphicon-chevron-left"></button></a></div>-->
 </div>
+</div>
+<br><br><br><br><br>

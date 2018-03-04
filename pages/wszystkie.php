@@ -40,12 +40,12 @@
 				foreach ($rows as $row) {
 					echo '<tr>';
 					echo '<td>'.$i.'</td>';
-					echo '<td><a href="?show='.$row->values()[0]->value('nazwa').'">'.$row->values()[0]->value('nazwa').'</a></td>';
-					echo '<td><a href="?show_rodzaj='.$row->values()[1]->value('nazwa').'">'.$row->values()[1]->value('nazwa').'</a></td>';
-					echo '<td><a href="?show_rodzina='.$row->values()[2]->value('nazwa').'">'.$row->values()[2]->value('nazwa').'</a></td>';
-					echo '<td><a href="?show_podgrupa='.$row->values()[3]->value('nazwa').'">'.$row->values()[3]->value('nazwa').'</a></td>';
-					echo '<td><a href="?show_grupa='.$row->values()[4]->value('nazwa').'">'.$row->values()[4]->value('nazwa').'</a></td>';
-					echo '<td><a href="?wszystkie&delete='.$row->values()[0]->identity().'"><button class="btn btn-danger">Usuń</button></a> <a href="?edit='.$row->values()[0]->identity().'"><button class="btn btn-info">Edytuj</button></a></td>';
+					echo '<td><a class="allhere" href="?show='.$row->values()[0]->value('nazwa').'">'.$row->values()[0]->value('nazwa').'</a></td>';
+					echo '<td><a class="allhere" href="?show_rodzaj='.$row->values()[1]->value('nazwa').'">'.$row->values()[1]->value('nazwa').'</a></td>';
+					echo '<td><a class="allhere" href="?show_rodzina='.$row->values()[2]->value('nazwa').'">'.$row->values()[2]->value('nazwa').'</a></td>';
+					echo '<td><a class="allhere" href="?show_podgrupa='.$row->values()[3]->value('nazwa').'">'.$row->values()[3]->value('nazwa').'</a></td>';
+					echo '<td><a class="allhere" href="?show_grupa='.$row->values()[4]->value('nazwa').'">'.$row->values()[4]->value('nazwa').'</a></td>';
+					echo '<td><a class="allhere" href="?wszystkie&delete='.$row->values()[0]->identity().'"><button class="btn btn-danger">Usuń</button></a> <a href="?edit='.$row->values()[0]->identity().'"><button class="btn btn-info">Edytuj</button></a></td>';
 					echo '</tr>';
 					$i++;
 				}

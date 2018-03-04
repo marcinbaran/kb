@@ -61,7 +61,7 @@
 <h2>Przeglądasz grupę: <?php echo $_GET['show_grupa']; ?></h2>
 
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
         <h3>Podrupa:</h3>
         <?php
             $rows = $function->show_grupa($_GET['show_grupa']);
@@ -70,13 +70,13 @@
             }
         ?>
     </div>
-    <div class="col-md-3" id="rodzina" style="display: none;">
+    <div class="col-md-4" id="rodzina" style="display: none;">
         <h3>Rodzina:</h3>
     </div>
-    <div class="col-md-3" id="rodzaj" style="display: none;">
+    <div class="col-md-4" id="rodzaj" style="display: none;">
         <h3>Rodzaj:</h3>
     </div>
-    <div class="col-md-3" id="instrument" style="display:none;">
-        <h3>Instrumenty:</h3>
-    </div>
+<!--    <div class="col-md-3" id="instrument" style="display:none;">-->
+<!--        <h3>Instrumenty:</h3>-->
+<!--    </div>-->
 </div>
