@@ -31,3 +31,12 @@ body{
 .table > thead > tr > th{
 	border-bottom: 2px solid #000;
 }
+
+.rozwijanie{
+	color: #005fb2;
+}
+
+.rozwijanie:hover{
+	color: #00baea;
+	cursor: pointer;
+}

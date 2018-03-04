@@ -55,3 +55,33 @@
             echo '<option>'.$row->values()[0]->value('nazwa').'</option>';
         }
     }
+
+    if(isset($_POST['pokaz_rodzinev2'])){
+        $query = 'MATCH(n:Podgrupa{nazwa:"'.$_POST['pokaz_rodzinev2'].'"})-[:hiperonim]->(m:Rodzina) RETURN m';
+        $result = $db->run($query);
+        $rows = $result->records();
+        echo '<h3>Rodzina:</h3>';
+        foreach ($rows as $row) {
+            echo '<span class="rozwijanie"  onclick="pokaz_rodzajv2($(this).text())">'.$row->values()[0]->value('nazwa').'</span><br>';
+        }
+    }
+
+    if(isset($_POST['pokaz_rodzajv2'])){
+        $query = 'MATCH(n:Rodzina{nazwa:"'.$_POST['pokaz_rodzajv2'].'"})-[:hiperonim]->(m:Rodzaj) RETURN m';
+        $result = $db->run($query);
+        $rows = $result->records();
+        echo '<h3>Rodzaj:</h3>';
+        foreach ($rows as $row) {
+            echo '<span class="rozwijanie"  onclick="pokaz_instrumenty($(this).text())">'.$row->values()[0]->value('nazwa').'</span><br>';
+        }
+    }
+
+    if(isset($_POST['pokaz_instrumenty'])){
+        $query = 'MATCH(n:Rodzaj{nazwa:"'.$_POST['pokaz_instrumenty'].'"})<-[:instanceof]-(m:Gatunek) RETURN m';
+        $result = $db->run($query);
+        $rows = $result->records();
+        echo '<h3>Instrumenty:</h3>';
+        foreach ($rows as $row) {
+            echo '<a href="?show='.$row->values()[0]->value('nazwa').'" class="rozwijanie">'.$row->values()[0]->value('nazwa').'</a><br>';
+        }
+    }
