@@ -37,10 +37,10 @@
 				<ul class="nav navbar-nav">
 					<li class="<?php if(isset($_GET['instrumenty'])){echo 'active';}else{echo '';} ?>"><a href="?instrumenty">Instrumenty muzyczne</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zarządzaj instrumentami<span class="caret"></span>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zarządzaj<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="?wszystkie">Wszystkie instrumenty</a></li>
+                            <li><a href="?wszystkie">Lista instrumentów muzycznych</a></li>
                             <li><a href="?dodaj">Dodaj instrument</a></li>
                         </ul>
                     </li>
@@ -50,9 +50,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Szukaj<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="?szukaj1">Instrument muzyczny po nazwie</a></li>
+                            <li><a href="?szukaj1">Instrument muzyczny wg. nazwy</a></li>
                             <li><a href="?szukaj2">Instrumenty z wybranego kraju</a></li>
-                            <li><a href="?szukaj3">Po grupie</a></li>
+                            <li><a href="?szukaj3">Według grupy</a></li>
                         </ul>
                     </li>
                 </ul>

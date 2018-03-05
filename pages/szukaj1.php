@@ -1,5 +1,5 @@
 <div class="row" style="margin-bottom: 30px;">
-    <div class="col-md-12" style="text-align: center;margin-top: 40px;"><h2>Szukaj instrument muzyczny po nazwie</h2></div>
+    <div class="col-md-12" style="text-align: center;margin-top: 40px;"><h2>Wyszukaj instrument muzyczny wg. nazwy</h2></div>
 </div>
 
 <form action="" method="POST" style="margin-bottom: 50px;">
@@ -15,7 +15,7 @@
 
 <?php
     if(isset($_POST['nazwa_instrumentu'])){
-        echo '<h4>Szukasz wyrażenia: '.$_POST['nazwa_instrumentu'].'</h4>';
+        echo '<h4>Szukasz instrumentu: '.$_POST['nazwa_instrumentu'].'</h4>';
         $rows = $function->szukaj_instrument_po_nazwie($_POST['nazwa_instrumentu']);
         $liczba = $function->szukaj_instrument_po_nazwie_liczba($_POST['nazwa_instrumentu']);
         if(empty($rows)){

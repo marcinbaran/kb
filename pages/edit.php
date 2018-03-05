@@ -52,7 +52,7 @@
 			<label for="opis">Opis:</label>
 			<textarea name="opis" class="form-control" rows="7"><?php echo $opis; ?></textarea><br>
 			<label for="skala">Skala:</label>
-			<textarea name="skala" class="form-control" rows="7"><?php echo $skala; ?></textarea><br>
+			<textarea name="skala" class="form-control" rows="1"><?php echo $skala; ?></textarea><br>
 			<input type="submit" name="submit" value="Zapisz" class="btn btn-success">
 		</form>
 	</div>

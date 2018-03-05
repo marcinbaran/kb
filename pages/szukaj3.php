@@ -85,7 +85,7 @@ if(isset($_POST['grupa'])){
 ?>
 
 <div class="row" style="margin-bottom: 30px;">
-    <div class="col-md-12" style="text-align: center;margin-top: 40px;"><h2>Szukaj po nazwie grupy</h2></div>
+    <div class="col-md-12" style="text-align: center;margin-top: 40px;"><h2>Wybierz grupę instrumentów</h2></div>
 </div>
 
 <form action="" method="POST" style="margin-bottom: 50px;">

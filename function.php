@@ -46,7 +46,7 @@ class Function_C{
                 }
                 echo '<br><br><br><br><br><br>';
                 break;
-            case 'Wywodzenie się instrumentu':
+            case 'Pochodzenie instrumentu':
                 $query = '  MATCH (n:Państwo)
                             WHERE n.nazwa =~ "(?i).*'.$wyrazenie.'.*"
                             RETURN n.nazwa ORDER BY n.nazwa ';
@@ -211,7 +211,7 @@ class Function_C{
                 }
                 break;
 
-            case 'Wywodzenie się instrumentu':
+            case 'Pochodzenie instrumentu':
                 $query = '  MATCH (n:Państwo{nazwa:"'.$more.'"}) 
                             MATCH (i:Gatunek)-[:wywodzi_się_z]->(n)
                             RETURN i

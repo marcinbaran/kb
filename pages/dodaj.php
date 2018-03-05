@@ -65,9 +65,9 @@
 				<label>Nazwa instrumentu:</label>
 				<input type="text" name="nazwa" class="form-control"><br>
 				<label>Opis instrumentu:</label>
-				<textarea name="opis" class="form-control" rows="7"></textarea><br>
+				<textarea name="opis" class="form-control" rows="5"></textarea><br>
 				<label>Skala instrumentu:</label>
-				<textarea name="skala" class="form-control"></textarea><br>
+				<textarea name="skala" class="form-control" rows="1"></textarea><br>
 		</div>
 		<div class="col-md-4">
             <label>Grupa instrumentu:</label>

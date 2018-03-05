@@ -16,7 +16,7 @@
 </script>
 
 <div class="row" style="margin-bottom: 30px;">
-    <div class="col-md-12" style="text-align: center;margin-top: 40px;"><h2>Szukaj instrument muzyczny po miejscu pochodzenia</h2></div>
+    <div class="col-md-12" style="text-align: center;margin-top: 40px;"><h2>Wyszukaj insturmenty z wybranego kraju</h2></div>
 </div>
 
 <form action="" method="POST" style="margin-bottom: 50px;">

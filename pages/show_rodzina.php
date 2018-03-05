@@ -1,5 +1,5 @@
 <?php
-	echo '<h2>Do Rodziny "'.$_GET['show_rodzina'].'"	 zalicza się Rodzaje:</h2>';
+	echo '<h2>Do Rodziny "'.$_GET['show_rodzina'].'"	 należa rodzaje:</h2>';
 	$rows = $function->show_rodzina($_GET['show_rodzina']);
 	echo '<h4>';
 	foreach ($rows as $row) {
