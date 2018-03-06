@@ -173,9 +173,9 @@ class Function_C{
 
 	public function get_pochodzenie($instrument){
 		$result = $this->db->run('	MATCH (n:Gatunek {nazwa:"'.$instrument.'"})
-									MATCH (n)-[:wywodzi_się_z]->(p:Państwo)
+									MATCH (n)-[r:wywodzi_się_z]->(p:Państwo)
 									MATCH (p)-[:znajduje_sie_w]->(k:Kontynent)
-									RETURN n,p,k
+									RETURN n,p,k, ID(r)
 			');
 		return $result->records();
 	}
@@ -302,7 +302,9 @@ class Function_C{
         return $result->records();
     }
 
-
+    public function usun_pochodzenie($id){
+        $this->db->run('MATCH ()-[r]-() WHERE id(r)='.$id.' DELETE r');
+    }
 
 
 

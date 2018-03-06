@@ -7,6 +7,13 @@
 				</div>';
 	}
 
+	if(isset($_GET['delete'])){
+        $function->usun_pochodzenie($_GET['delete']);
+        echo '	<div class="alert alert-success">
+					<strong>Państwo usunięto pomyślnie!</strong>
+				</div>';
+    }
+
 	if(isset($_POST['dodajkraj'])){
 		$function->dodaj_nowy_kraj($_GET['edit'], $_POST);
 	}
@@ -80,6 +87,7 @@
                 <tr>
                     <th>Państwo</th>
                     <th>Kontynent</th>
+                    <th>Akcja</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -93,6 +101,7 @@
                         if(isset($poch->values()[2])){
                             echo '<td>'.$poch->values()[2]->value('nazwa').'</td>';
                         }
+                        echo '<td><a href="?edit='.$_GET['edit'].'&delete='.$poch->values()[3].'"><button class="btn btn-danger" style="padding:0px;">USUŃ</button></a></td>';
                         echo '</tr>';
                     }
                 ?>
