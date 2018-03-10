@@ -62,7 +62,7 @@
         $rows = $result->records();
         echo '<h3>Rodzina:</h3>';
         foreach ($rows as $row) {
-            echo '<span class="rozwijanie"  onclick="pokaz_rodzajv2($(this).text())">'.$row->values()[0]->value('nazwa').'</span><br>';
+            echo '<span class="rozwijanie" id="'.$row->values()[0]->value('nazwa').'" onclick="pokaz_rodzajv2($(this).text())">'.$row->values()[0]->value('nazwa').'</span><br>';
         }
     }
 
@@ -72,7 +72,7 @@
         $rows = $result->records();
         echo '<h3>Rodzaj:</h3>';
         foreach ($rows as $row) {
-            echo '<a href="?show_rodzaj='.$row->values()[0]->value('nazwa').'" class="rozwijanie">'.$row->values()[0]->value('nazwa').'</a><br>';
+            echo '<a href="?show_rodzaj='.$row->values()[0]->value('nazwa').'" class="rozwijanie" id="'.$row->values()[0]->value('nazwa').'">'.$row->values()[0]->value('nazwa').'</a><br>';
 //            echo '<span class="rozwijanie"  onclick="pokaz_instrumenty($(this).text())">'.$row->values()[0]->value('nazwa').'</span><br>';
         }
     }

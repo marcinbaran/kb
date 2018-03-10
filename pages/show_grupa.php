@@ -22,6 +22,8 @@
             success: function (response) {
                 document.getElementById("rodzina").innerHTML=response;
                 document.getElementById("rodzina").style.display="inline";
+                a = document.getElementById(val);
+                a.style.color="red";
             }
         });
     }
@@ -36,6 +38,8 @@
             success: function (response) {
                 document.getElementById("rodzaj").innerHTML=response;
                 document.getElementById("rodzaj").style.display="inline";
+                b = document.getElementById(val);
+                b.style.color="red";
             }
         });
     }
@@ -50,6 +54,8 @@
             success: function (response) {
                 document.getElementById("instrument").innerHTML=response;
                 document.getElementById("instrument").style.display="inline";
+                c = document.getElementById(val);
+                c.style.color="red";
             }
         });
     }
@@ -66,7 +72,7 @@
         <?php
             $rows = $function->show_grupa($_GET['show_grupa']);
             foreach ($rows as $row){
-                echo '<span class="rozwijanie"  onclick="pokaz_rodzinev2($(this).text())">'.$row->values()[0]->values()['nazwa'].'</span><br>';
+                echo '<span class="rozwijanie" id="'.$row->values()[0]->values()['nazwa'].'" onclick="pokaz_rodzinev2($(this).text())">'.$row->values()[0]->values()['nazwa'].'</span><br>';
             }
         ?>
     </div>
