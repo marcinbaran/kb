@@ -1,3 +1,5 @@
+@import url(//fonts.googleapis.com/css?family=Lato:700,900);
+
 body{
 	/*background: url("../img/bg.jpg");*/
 	background-repeat: no-repeat;
@@ -51,4 +53,8 @@ body{
 
 textarea{
 	resize: none;
+}
+
+.tekst{
+	font-family: lato;
 }

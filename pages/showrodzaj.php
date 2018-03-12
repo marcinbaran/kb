@@ -15,7 +15,7 @@
 	<div class="col-md-1"><a href="javascript:history.go(-1);"><button class="btn btn-info glyphicon glyphicon-chevron-left"></button></a></div>
 </div>
 <div class="row">
-	<div class="col-md-8">
+	<div class="col-md-8 tekst">
 		<h4> 
 			<?php
 			if(isset($rows1[0]->values()[0]->values()['Opis'])){
