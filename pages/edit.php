@@ -15,7 +15,13 @@
     }
 
 	if(isset($_POST['dodajkraj'])){
-		$function->dodaj_nowy_kraj($_GET['edit'], $_POST);
+	    if(!isset($_POST['panstwo'])){
+            echo '	<div class="alert alert-danger">
+					<strong>Nie wybrano państwa!</strong>
+				</div>';
+        }else {
+            $function->dodaj_nowy_kraj($_GET['edit'], $_POST);
+        }
 	}
 
 	$row = $function->info_about_instrument($_GET['edit']);
